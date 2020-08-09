@@ -58,8 +58,14 @@
 	<li class="<%=i==0?'now':''%>"><a href="javascript:;" data-id="<%=rows[i].id%>"><%=rows[i].categoryName%></a></li>
 	<% } %>
 </script>
-<script type="text/javascript">
-	
+<script type="text/template" id="secondTemplate">
+	<% if(rows.length){ %>
+	<% for(let i = 0; i < rows.length; i++){ %>
+		<li><a href="javascript:;"><img src="<%= rows[i].brandLogo %>" alt=""><p><%=rows[i].brandName%></p></a></li>
+	<% } %>
+	<% }else{ %>
+		<p>当前分类没有数据</p>
+	<% } %>
 </script>
 <script src="assets/mui/js/mui.min.js"></script>
 <script src="assets/zepto/zepto.min.js"></script>
