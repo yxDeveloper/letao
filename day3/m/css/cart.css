@@ -12,7 +12,7 @@
     width: 100%;
     overflow: hidden;
     white-space: normal;
-	white-space: inherit;
+	/* white-space: inherit; */
     color: #666;
 }
 [data-product] .price{
