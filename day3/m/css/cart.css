@@ -12,7 +12,11 @@
     width: 100%;
     overflow: hidden;
     white-space: normal;
+	/* 文本换行，默认 */
+	/* white-space: nowrap; */
+	/* 文本不会换行，文本会在在同一行上继续，直到遇到 <br> 标签为止。 */
 	/* white-space: inherit; */
+	
     color: #666;
 }
 [data-product] .price{
