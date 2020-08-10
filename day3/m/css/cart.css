@@ -16,7 +16,7 @@
 	/* white-space: nowrap; */
 	/* 文本不会换行，文本会在在同一行上继续，直到遇到 <br> 标签为止。 */
 	/* white-space: inherit; */
-	
+	/* 规定应该从父元素继承 white-space 属性的值。 */
     color: #666;
 }
 [data-product] .price{
