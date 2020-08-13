@@ -165,3 +165,20 @@ let setAmount = function () {
 	console.log(amountSum);
 	$('#cartAmount').html(amountSum);
 }
+let getCartData = function (callback) {
+	CT.loginAjax({
+		type: 'get',
+		url: '/cart/queryCarPaging',
+		data: {
+			page: 1,
+			// 不产生分页	需要修改借口
+			pageSize: 100
+		},
+		dataType:'json',
+		success:function (data) {
+			// 缓存的数据
+			window.cartData = data;
+			callback && callback(data);
+		}
+	});
+}
