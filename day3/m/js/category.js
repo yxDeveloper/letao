@@ -24,7 +24,40 @@ $(function () {
 		$('.cate_left li').removeClass('now');
 		$(this).parent().addClass('now');
 		// 数据的渲染
-		render( $(this).attr('data-id'));
+		render($(this).attr('data-id'));
 	});
 });
-// 获取
+// 获取一级分类的数据
+let getFirstCategoryData = function (callback) {
+	$.ajax({
+		url:'/category/queryTopCategory',
+		type: 'get',
+		data: '',
+		dataType: 'json',
+		success:function (data) {
+			callback $$ callback(data);
+		}
+	})
+}
+// 获取二级分类的数据
+// params = {id:1}
+let getSecondCategoryData = function (params,callback) {
+	$.ajax({
+		url:'/category/querySecondCategory',
+		type: 'get',
+		data: params,
+		dataType: 'json',
+		success: function (data) {
+			callback && callback(data);
+		}
+	});
+};
+// 渲染
+let render = function (categoryId) {
+	getSecondCategoryData({
+		id:categoryId
+	},function (data) {
+		// 二级分类默认
+		$('.cate_right ul').html(template('secondTemplate',data));
+	});
+}
