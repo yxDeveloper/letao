@@ -135,5 +135,13 @@ $(() => {
 			}
 		})
 	});
-	
+	// 5.点击复选框  计算总金额
+	$('.mui-table-view').on('change','[type-checkbox]',function () {
+		// 总金额 = 每个商品数量*单价 的总和
+		setAmount();
+	});
 });
+/**/
+let setAmount = function () {
+	
+}
