@@ -143,5 +143,25 @@ $(() => {
 });
 /**/
 let setAmount = function () {
-	
+	// 所有选项中的复选框
+	let $checkedBox = $('[type=checkbox]:checked');
+	// 获取选中商品的ID
+	// $.each(i,item)	$dom.each(i,item)	arr.forEach(item,i)
+	let amountSum = 0;
+	$checkedBox.each(function (i , item) {
+		let id = $(this).attr('data-id');
+		var item = CT.getItemById(window.cartData.data,id);
+		let num = item.num;
+		let price = item.price;
+		let amount = num * price;
+		amountSum += amount;
+	});
+	if(Math.floor(amountSum * 100)%10) {
+		amountSum = Math.floor(amountSum * 100)/100;
+	} else {
+		amountSum = Math.floor(amountSum * 100)/100;
+		amountSum = amountSum.toString()+'0';
+	}
+	console.log(amountSum);
+	$('#cartAmount').html(amountSum);
 }
